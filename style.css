@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FFF9E6; /* Kuning khas Peanuts */
+    font-family: 'Quicksand', sans-serif;
+    color: #333;
+    overflow: hidden;
+}
+
+/* Sistem Manajemen Halaman */
+.page {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* Gambar Ornamen Dekorasi Sisi Kanan & Kiri Luar (Halaman 1) */
+.decor-side {
+    position: absolute;
+    font-size: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.left-decor { left: 5%; }
+.right-decor { right: 5%; }
+
+/* Container Utama */
+.container {
+    background: #FFFFFF;
+    border: 3px solid #333;
+    border-radius: 24px;
+    padding: 35px;
+    width: 90%;
+    max-width: 680px;
+    box-shadow: 6px 6px 0px #333;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Layout Kotak Halaman 1 */
+.page1-layout {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+}
+
+.side-img img {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border: 3px solid #333;
+    border-radius: 20px;
+}
+
+.content-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #E2445C;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #555;
+    text-align: center;
+}
+
+/* Layar Display Bulatan PIN */
+.pin-display {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.pin-dot {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #333;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.1s;
+}
+
+.pin-dot.filled {
+    background-color: #333;
+}
+
+/* Grid Desain Numpad/Tombol PIN */
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 220px;
+}
+
+.numpad button {
+    background-color: #FFF;
+    border: 2px solid #333;
+    padding: 12px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #333;
+    transition: all 0.1s;
+}
+
+.numpad button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0 #333;
+}
+
+.numpad .btn-clear { background-color: #E2445C; color: white; }
+.numpad .btn-ok { background-color: #2A9D8F; color: white; }
+
+.error-text {
+    color: #E2445C;
+    margin-top: 10px;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+/* Tombol Next Pojok Kanan Bawah */
+.btn-next {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #2A9D8F;
+    color: white;
+    border: 2px solid #333;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #333;
+    z-index: 12;
+}
+
+/* Animasi-animasi */
+.snoopy-animation, .cake-icon, .digicam-large { font-size: 4rem; margin-bottom: 20px; }
+.candle-glow { font-size: 2rem; animation: pulse 1s infinite alternate; }
+
+.corner-snoopy { position: absolute; top: 40px; font-size: 3rem; }
+.corner-snoopy.left { left: 40px; }
+.corner-snoopy.right { right: 40px; }
+.right-snoopy { position: absolute; right: 50px; top: 30%; font-size: 4rem; }
+
+.digicam-click { font-size: 5rem; cursor: pointer; display: inline-block; position: relative; transition: transform 0.2s; }
+.digicam-click:hover { transform: scale(1.1); }
+.sparkle { position: absolute; top: -10px; right: -10px; font-size: 2rem; animation: flash 1s infinite; }
+
+/* Halaman Akhir Layout */
+.final-layout { display: flex; flex-direction: column; align-items: center; gap: 25px; max-width: 500px; }
+.photo-frame { background: white; padding: 15px; padding-bottom: 25px; border: 3px solid #333; box-shadow: 4px 4px 0 #333; transform: rotate(-2deg); width: 220px; }
+.photo-frame img { width: 100%; height: 200px; object-fit: cover; border: 2px solid #333; }
+.frame-caption { font-family: 'Fredoka One', cursive; text-align: center; margin-top: 10px; font-size: 0.9rem; color: #555; }
+.aesthetic-note { background: #FFF; border: 3px dashed #F4A261; border-radius: 16px; padding: 20px; text-align: left; }
+.aesthetic-note h3 { margin-bottom: 10px; color: #2A9D8F; }
+
+/* Keyframes Animasi Bergerak Naik Turun Luar Kotak */
+@keyframes floating {
+    0%, 100% { transform: translateY(-50%) translateY(0px); }
+    50% { transform: translateY(-50%) translateY(-15px); }
+}
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.1); opacity: 1; } }
+@keyframes flash { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* Pengaturan Responsif Layar HP */
+@media (max-width: 768px) {
+    .decor-side { display: none; }
+    .page1-layout { flex-direction: column; text-align: center; }
+    .right-snoopy { display: none; }
+}
+
+/* ================= CSS EFEK FOTO POP-UP DI ATAS KAMERA (HALAMAN 5) ================= */
+.camera-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Mengangkat konten utama agar menjauh dari tombol */
+    position: relative;
+    min-height: 420px; /* Dipertinggi secara vertikal agar muat semua elemen secara longgar */
+    padding-top: 20px;
+}
+
+.camera-title {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    z-index: 5;
+}
+
+.digicam-large {
+    font-size: 4.5rem;
+    margin-bottom: 5px;
+    z-index: 5;
+    position: relative;
+}
+
+.photo-popup {
+    position: relative; /* Diubah dari absolute ke relative agar mendorong konten ke bawah secara otomatis */
+    transform: scale(0);
+    opacity: 0;
+    height: 0; /* Awalnya tidak memakan ruang */
+    margin: 0 auto;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    background: white;
+    padding: 12px;
+    padding-bottom: 20px;
+    border: 3px solid #333;
+    box-shadow: 4px 4px 0 #333;
+    width: 200px;
+}
+
+.photo-popup img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 2px solid #333;
+}
+
+.photo-popup-caption {
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Efek saat kelas ditambahkan oleh JS setelah klik jepret */
+.photo-popup.show-photo {
+    transform: scale(1) rotate(-3deg);
+    opacity: 1;
+    height: auto; /* Membuka ruang kosong secara dinamis */
+    margin-bottom: 25px; /* Memberi jarak aman ke teks di bawahnya */
+}
+
+.btn-snap {
+    background-color: #E2445C;
+    color: white;
+    border: 2px solid #333;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #333;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    z-index: 11;
+    transition: all 0.1s;
+}
+
+.btn-snap:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0 #333;
+}
+
+/* ================= CSS UNTUK GIF SNOOPY (HALAMAN 2) ================= */
+.snoopy-gif-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.snoopy-gif {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ================= CSS UNTUK GAMBAR KUE KARTUN (HALAMAN 3) ================= */
+.cake-img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.birthday-cake-img {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
